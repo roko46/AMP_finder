@@ -1,6 +1,16 @@
-# AMP_finder
-Let's fight pathogens together
+# AMP Finder (Streamlit)
 
-python -m venv venv
-source venv/bin/activate # macOS / Linux
-venv\Scripts\activate # Windows (PowerShell)
+Educational Streamlit app that computes basic physicochemical descriptors for peptide sequences
+and produces a simple heuristic "AMP-likeness" score.
+
+## Quickstart
+
+1. Create a virtualenv and activate it.
+2. Install dependencies:
+
+pip install -r requirements.txt
+
+3. Run the app:
+
+streamlit run app.py
+
