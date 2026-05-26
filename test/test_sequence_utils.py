@@ -1,4 +1,3 @@
-import pytest
 from amp_finder.utils.sequence_utils import clean_sequence, validate_sequence
 
 

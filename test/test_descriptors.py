@@ -1,12 +1,10 @@
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
+
 from amp_finder.descriptors import (
+    charge,
+    hydrophobicity,
     length,
     molecular_weight,
-    hydrophobicity,
-    charge,
-    instability,
-    aromaticity,
-    isoelectric_point,
 )
 
 SEQ = "KWKLFKKIGAVLKVL"  # example peptide
