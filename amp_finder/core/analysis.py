@@ -8,13 +8,13 @@ This centralizes logic so UI code remains simple and testable.
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 
 from amp_finder.descriptors import (
+    aromaticity,
+    charge,
+    hydrophobicity,
+    instability,
+    isoelectric_point,
     length,
     molecular_weight,
-    hydrophobicity,
-    charge,
-    instability,
-    aromaticity,
-    isoelectric_point,
 )
 from amp_finder.scoring.heuristic_score import compute as compute_score
 

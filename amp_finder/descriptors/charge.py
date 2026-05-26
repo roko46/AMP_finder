@@ -1,7 +1,8 @@
 """
 Approximate net charge at pH 7.
 
-We attempt to use ProteinAnalysis. If it fails, fall back to crude basic-minus-acidic count.
+We attempt to use ProteinAnalysis. If it fails, fall back to crude
+basic-minus-acidic count.
 """
 
 

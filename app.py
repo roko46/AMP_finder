@@ -1,10 +1,11 @@
 import base64
-import streamlit as st
 import os
-import matplotlib.pyplot as plt
 
-from amp_finder.utils.sequence_utils import clean_sequence, validate_sequence
+import matplotlib.pyplot as plt
+import streamlit as st
+
 from amp_finder.core.analysis import analyze_sequence
+from amp_finder.utils.sequence_utils import clean_sequence, validate_sequence
 
 # ------------------------------------------------------------
 # PAGE CONFIG
@@ -41,7 +42,8 @@ with st.sidebar:
 
         - Computes physicochemical descriptors.
         - Displays a heuristic AMP-likeness score.
-        - You can add new descriptors under `amp_finder/descriptors/` — they load automatically.
+        - You can add new descriptors under `amp_finder/descriptors/`
+          — they load automatically.
         """)
     st.markdown("---")
     st.subheader("Example sequences")
@@ -96,14 +98,17 @@ with col_right:
             )
             st.write(f"- **GRAVY (hydropathy):** {descriptors.get('gravy', 'N/A')}")
             st.write(
-                f"- **Instability index:** {descriptors.get('instability_index', 'N/A')}"
+                "- **Instability index:** "
+                f"{descriptors.get('instability_index', 'N/A')}"
             )
             st.write(f"- **pI:** {descriptors.get('isoelectric_point', 'N/A')}")
             st.write(
-                f"- **Charge at pH7:** {descriptors.get('charge_at_pH7', descriptors.get('charge', 'N/A'))}"
+                "- **Charge at pH7:** "
+                f"{descriptors.get('charge_at_pH7', descriptors.get('charge', 'N/A'))}"
             )
             st.write(
-                f"- **Hydrophobic fraction:** {descriptors.get('hydrophobic_fraction', 'N/A')}"
+                "- **Hydrophobic fraction:** "
+                f"{descriptors.get('hydrophobic_fraction', 'N/A')}"
             )
 
             with col_left:

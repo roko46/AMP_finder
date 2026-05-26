@@ -17,7 +17,6 @@ def compute(descriptors: dict) -> dict:
     Returns a dict with component scores and final amp_score.
     """
     length = descriptors.get("length", 0)
-    gravy = descriptors.get("gravy", 0.0)
     charge = descriptors.get("charge_at_pH7", 0.0)
     instability = descriptors.get("instability_index", 100.0)
     hydrophobic_fraction = descriptors.get("hydrophobic_fraction", 0.0)
