@@ -1,23 +1,37 @@
-/* Change background color */
-body {
-    background-color: #f4f4f9;
+/* === FULL-PAGE TRANSLUCENT BACKGROUND LOGO === */
+[data-testid="stApp"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("data:image/png;base64,BASE64_LOGO_PLACEHOLDER") no-repeat center center;
+    background-size: 50%;
+    opacity: 0.25; /* adjust visibility */
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* Change title font size and color */
-h1 {
-    color: #2c3e50;
-    font-size: 2.5rem;
+/* === OPTIONAL COLOR THEMING === */
+[data-testid="stAppViewContainer"] {
+    background-color: rgba(250, 250, 253, 0.95);
 }
 
-/* Customize Streamlit button */
-.stButton>button {
+[data-testid="stSidebar"] {
+    background-color: #f9fafc;
+}
+
+/* === BUTTON STYLE === */
+.stButton > button {
     background-color: #3498db;
     color: white;
     border-radius: 8px;
     padding: 0.5rem 1rem;
+    font-weight: 600;
+    border: none;
 }
-
-/* Adjust sidebar width */
-.css-1d391kg {
-    width: 250px;
+.stButton > button:hover {
+    background-color: #2980b9;
+    transform: scale(1.03);
 }

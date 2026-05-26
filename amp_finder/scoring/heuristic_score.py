@@ -5,6 +5,7 @@ This is NOT a trained model — it's a pedagogical weighted sum that
 combines charge, hydrophobicity, length, and stability into a 0..100 score.
 """
 
+
 def compute(descriptors: dict) -> dict:
     """
     descriptors: dictionary with keys:
@@ -35,10 +36,12 @@ def compute(descriptors: dict) -> dict:
     stability_score = max(0.0, 1.0 - instability / 120.0)
 
     # weighted combination with conservative weights
-    combined = (0.35 * charge_score +
-                0.30 * hydrophobic_score +
-                0.20 * length_score +
-                0.15 * stability_score)
+    combined = (
+        0.35 * charge_score
+        + 0.30 * hydrophobic_score
+        + 0.20 * length_score
+        + 0.15 * stability_score
+    )
 
     amp_score = round(100.0 * combined, 2)
 

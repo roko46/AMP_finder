@@ -6,6 +6,7 @@ We use a simple set of hydrophobic residues (A, I, L, M, F, V, W, Y).
 
 HYDROPHOBIC = set("AILMFVWY")
 
+
 def compute(seq: str, pa) -> float:
     counts = pa.count_amino_acids()
     length = len(seq)

@@ -4,13 +4,20 @@ and call the scoring function.
 
 This centralizes logic so UI code remains simple and testable.
 """
+
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 
 from amp_finder.descriptors import (
-    length, molecular_weight, hydrophobicity,
-    charge, instability, aromaticity, isoelectric_point
+    length,
+    molecular_weight,
+    hydrophobicity,
+    charge,
+    instability,
+    aromaticity,
+    isoelectric_point,
 )
 from amp_finder.scoring.heuristic_score import compute as compute_score
+
 
 def analyze_sequence(seq: str) -> dict:
     pa = ProteinAnalysis(seq)  # compute once and pass to modules
