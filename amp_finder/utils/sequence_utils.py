@@ -9,6 +9,7 @@ import re
 
 VALID_AA = set(list("ACDEFGHIKLMNPQRSTVWY"))  # 20 standard amino acids
 
+
 def clean_sequence(seq: str) -> str:
     if seq is None:
         return ""
@@ -16,6 +17,7 @@ def clean_sequence(seq: str) -> str:
     s = re.sub(r"\s+", "", seq).upper()
     s = re.sub(r"[^A-Z]", "", s)
     return s
+
 
 def validate_sequence(seq: str) -> (bool, str):
     if not seq:

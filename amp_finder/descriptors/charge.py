@@ -4,6 +4,7 @@ Approximate net charge at pH 7.
 We attempt to use ProteinAnalysis. If it fails, fall back to crude basic-minus-acidic count.
 """
 
+
 def compute(seq: str, pa) -> float:
     try:
         return pa.charge_at_pH(7.0)
