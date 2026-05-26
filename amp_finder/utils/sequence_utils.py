@@ -19,7 +19,7 @@ def clean_sequence(seq: str) -> str:
     return s
 
 
-def validate_sequence(seq: str) -> (bool, str):
+def validate_sequence(seq: str) -> tuple[bool, str]:
     if not seq:
         return False, "Empty sequence."
     if len(seq) < 3:

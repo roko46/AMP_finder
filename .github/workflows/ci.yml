@@ -9,21 +9,25 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
 
       - name: Cache pip
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -34,5 +38,14 @@ jobs:
       - name: Format check (black)
         run: black --check .
 
-      - name: Test (pytest)
-        run: pytest test/
+      - name: Type check (mypy)
+        run: mypy amp_finder/
+
+      - name: Test with coverage (pytest)
+        run: pytest test/ --cov=amp_finder --cov-report=term-missing
+
+      - name: Security scan (bandit)
+        run: bandit -r amp_finder/ -q
+
+      - name: Dependency audit (pip-audit)
+        run: pip-audit -r requirements.txt

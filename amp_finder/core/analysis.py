@@ -31,7 +31,7 @@ def analyze_sequence(seq: str) -> dict:
         "isoelectric_point": isoelectric_point.compute(seq, pa),
         "gravy": pa.gravy(),
         "amino_acid_counts": pa.count_amino_acids(),
-        "amino_acid_percent": pa.get_amino_acids_percent(),
+        "amino_acid_percent": pa.amino_acids_percent,
     }
     score = compute_score(descriptors)
     return {"descriptors": descriptors, "score": score}
